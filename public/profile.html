@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Yash Pandey | Developer Profile</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, #020617, #0f172a, #1e293b);
+
+      color: white;
+      padding: 30px 15px;
+
+      transition:
+        background 0.5s,
+        color 0.5s;
+
+      overflow-x: hidden;
+    }
+
+    /* PARTICLES */
+
+    #particles {
+      position: fixed;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* TOP BAR */
+
+    .top-bar {
+      position: fixed;
+
+      top: 18px;
+      left: 18px;
+      right: 18px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      z-index: 50;
+    }
+
+    .status {
+      padding: 9px 15px;
+
+      border-radius: 30px;
+
+      background:
+        rgba(34,197,94,0.15);
+
+      border:
+        1px solid rgba(34,197,94,0.4);
+
+      backdrop-filter: blur(10px);
+
+      font-size: 13px;
+    }
+
+    .status span {
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .theme-btn {
+      width: 46px;
+      height: 46px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255,255,255,0.2);
+
+      background:
+        rgba(255,255,255,0.1);
+
+      color: white;
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(10px);
+
+      transition: 0.3s;
+    }
+
+    .theme-btn:hover {
+      transform:
+        rotate(20deg)
+        scale(1.1);
+    }
+
+    /* MAIN */
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+
+      margin: 70px auto 30px;
+    }
+
+    /* PROFILE CARD */
+
+    .profile-card {
+      text-align: center;
+
+      padding: 40px 25px;
+
+      border-radius: 28px;
+
+      background:
+        rgba(255,255,255,0.07);
+
+      border:
+        1px solid rgba(255,255,255,0.14);
+
+      backdrop-filter: blur(15px);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.4);
+
+      animation:
+        fadeUp 0.8s ease;
+    }
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    /* PHOTO */
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      border:
+        4px solid white;
+
+      box-shadow:
+        0 0 35px rgba(56,189,248,0.55);
+
+      transition: 0.4s;
+
+      margin-bottom: 20px;
+    }
+
+    .profile-img:hover {
+      transform:
+        scale(1.08)
+        rotate(2deg);
+
+      box-shadow:
+        0 0 55px rgba(56,189,248,0.8);
+    }
+
+    h1 {
+      font-size: 38px;
+
+      margin-bottom: 8px;
+    }
+
+    .role {
+      color: #38bdf8;
+
+      font-size: 19px;
+
+      margin-bottom: 20px;
+    }
+
+    .typing {
+      color: #cbd5e1;
+
+      min-height: 24px;
+
+      margin-bottom: 25px;
+    }
+
+    /* BUTTONS */
+
+    .social-buttons {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 20px;
+    }
+
+    .social-btn {
+      padding: 11px 18px;
+
+      border-radius: 10px;
+
+      text-decoration: none;
+
+      color: white;
+
+      background:
+        rgba(255,255,255,0.08);
+
+      border:
+        1px solid rgba(255,255,255,0.15);
+
+      transition: 0.3s;
+    }
+
+    .social-btn:hover {
+      transform:
+        translateY(-4px);
+
+      background:
+        rgba(56,189,248,0.2);
+    }
+
+    /* SECTIONS */
+
+    .section {
+      margin-top: 20px;
+
+      padding: 25px;
+
+      border-radius: 22px;
+
+      background:
+        rgba(255,255,255,0.06);
+
+      border:
+        1px solid rgba(255,255,255,0.12);
+
+      backdrop-filter: blur(12px);
+
+      animation:
+        fadeUp 0.8s ease;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+
+      color: #38bdf8;
+    }
+
+    .about {
+      color: #cbd5e1;
+
+      line-height: 1.7;
+    }
+
+    /* INFO */
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+      gap: 12px;
+    }
+
+    .info-box {
+      padding: 16px;
+
+      border-radius: 14px;
+
+      background:
+        rgba(255,255,255,0.06);
+
+      transition: 0.3s;
+    }
+
+    .info-box:hover {
+      transform:
+        translateY(-4px);
+
+      background:
+        rgba(56,189,248,0.1);
+    }
+
+    .info-box small {
+      color: #94a3b8;
+    }
+
+    .info-box strong {
+      display: block;
+
+      margin-top: 5px;
+
+      word-break: break-word;
+    }
+
+    /* SKILLS */
+
+    .skill {
+      margin-bottom: 18px;
+    }
+
+    .skill-title {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-bottom: 7px;
+
+      font-size: 14px;
+    }
+
+    .bar {
+      height: 9px;
+
+      background:
+        rgba(255,255,255,0.1);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+
+      width: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          #38bdf8,
+          #818cf8
+        );
+
+      border-radius: 20px;
+
+      animation:
+        loadBar 1.5s forwards;
+    }
+
+    @keyframes loadBar {
+      to {
+        width: var(--width);
+      }
+    }
+
+    /* COPY */
+
+    .copy-btn {
+      margin-top: 8px;
+
+      padding: 7px 12px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      background: #38bdf8;
+
+      color: white;
+
+      cursor: pointer;
+    }
+
+    /* BACK */
+
+    .back {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      padding: 12px 20px;
+
+      border-radius: 10px;
+
+      background: white;
+
+      color: #0f172a;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .back:hover {
+      transform:
+        translateY(-3px);
+    }
+
+    /* CHAT BUTTON */
+
+    .chat-button {
+      position: fixed;
+
+      right: 25px;
+      bottom: 25px;
+
+      width: 62px;
+      height: 62px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #38bdf8;
+
+      color: white;
+
+      font-size: 28px;
+
+      cursor: pointer;
+
+      z-index: 100;
+
+      box-shadow:
+        0 8px 30px
+        rgba(56,189,248,0.5);
+
+      transition: 0.3s;
+    }
+
+    .chat-button:hover {
+      transform:
+        scale(1.1);
+    }
+
+    /* CHAT */
+
+    .chat-box {
+      position: fixed;
+
+      right: 25px;
+      bottom: 100px;
+
+      width: 350px;
+      max-width:
+        calc(100vw - 40px);
+
+      height: 470px;
+
+      background:
+        rgba(2,6,23,0.97);
+
+      border:
+        1px solid rgba(255,255,255,0.15);
+
+      border-radius: 20px;
+
+      z-index: 100;
+
+      display: none;
+
+      flex-direction: column;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 20px 70px
+        rgba(0,0,0,0.6);
+    }
+
+    .chat-box.open {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 16px;
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      background:
+        rgba(56,189,248,0.15);
+    }
+
+    .close-chat {
+      border: none;
+
+      background: none;
+
+      color: white;
+
+      font-size: 20px;
+
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+
+      padding: 15px;
+
+      overflow-y: auto;
+    }
+
+    .message {
+      max-width: 85%;
+
+      padding: 10px 13px;
+
+      border-radius: 14px;
+
+      margin-bottom: 10px;
+
+      font-size: 14px;
+
+      line-height: 1.5;
+    }
+
+    .bot-message {
+      background:
+        rgba(255,255,255,0.1);
+
+      margin-right: auto;
+    }
+
+    .user-message {
+      background: #0284c7;
+
+      margin-left: auto;
+    }
+
+    .quick-buttons {
+      padding: 10px;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 6px;
+    }
+
+    .quick-buttons button {
+      padding: 7px 9px;
+
+      border-radius: 15px;
+
+      border:
+        1px solid
+        rgba(56,189,248,0.4);
+
+      background:
+        rgba(56,189,248,0.1);
+
+      color: white;
+
+      cursor: pointer;
+
+      font-size: 12px;
+    }
+
+    .quick-buttons button:hover {
+      background:
+        rgba(56,189,248,0.3);
+    }
+
+    .chat-input {
+      display: flex;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+    }
+
+    .chat-input input {
+      flex: 1;
+
+      padding: 14px;
+
+      border: none;
+
+      outline: none;
+
+      background:
+        rgba(255,255,255,0.06);
+
+      color: white;
+    }
+
+    .chat-input button {
+      width: 55px;
+
+      border: none;
+
+      background: #38bdf8;
+
+      color: white;
+
+      cursor: pointer;
+    }
+
+    /* BACK TO TOP */
+
+    .top-btn {
+      position: fixed;
+
+      right: 25px;
+      bottom: 100px;
+
+      width: 42px;
+      height: 42px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.12);
+
+      color: white;
+
+      cursor: pointer;
+
+      display: none;
+
+      z-index: 30;
+    }
+
+    /* LIGHT MODE */
+
+    body.light {
+      background:
+        linear-gradient(
+          135deg,
+          #dbeafe,
+          #f8fafc
+        );
+
+      color: #0f172a;
+    }
+
+    body.light .profile-card,
+    body.light .section {
+      background:
+        rgba(255,255,255,0.65);
+
+      border-color:
+        rgba(15,23,42,0.1);
+    }
+
+    body.light .about,
+    body.light .typing {
+      color: #334155;
+    }
+
+    body.light .info-box {
+      background:
+        rgba(15,23,42,0.05);
+    }
+
+    body.light .theme-btn {
+      color: #0f172a;
+
+      background:
+        rgba(15,23,42,0.08);
+    }
+
+    body.light .back {
+      background: #0f172a;
+
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:600px) {
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .profile-card {
+        padding: 30px 18px;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .chat-box {
+        right: 20px;
+        bottom: 95px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <!-- TOP -->
+
+  <div class="top-bar">
+
+    <div class="status">
+      🟢 <span>Available</span> for learning
+    </div>
+
+    <button
+      class="theme-btn"
+      onclick="toggleTheme()"
+    >
+      🌙
+    </button>
+
+  </div>
+
+
+  <main class="container">
+
+    <!-- PROFILE -->
+
+    <div class="profile-card">
+
+      <img
+  src="/public/myphoto.jpg"
+  alt="Yash Pandey"
+  class="profile-img"
+>
+
+      <h1>Yash Pandey</h1>
+
+      <div class="role">
+        Web Developer
+      </div>
+
+      <div
+        class="typing"
+        id="typing"
+      ></div>
+
+
+      <div class="social-buttons">
+
+        <a
+          class="social-btn"
+          href="https://github.com/yashpandey1567-code"
+          target="_blank"
+        >
+          💻 GitHub
+        </a>
+
+        <a
+          class="social-btn"
+          href="https://www.instagram.com/yashh74_/"
+          target="_blank"
+        >
+          📸 Instagram
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <div class="section">
+
+      <h2>👨‍💻 About Me</h2>
+
+      <p class="about">
+        Hi! I'm Yash Pandey, a beginner web developer
+        who enjoys creating modern websites and learning
+        new technologies. I'm currently exploring
+        full-stack web development and building my
+        own projects.
+      </p>
+
+    </div>
+
+
+    <!-- INFO -->
+
+    <div class="section">
+
+      <h2>📋 Developer Info</h2>
+
+      <div class="info-grid">
+
+        <div class="info-box">
+
+          <small>📧 Email</small>
+
+          <strong>
+            yashpandeymaihar@gmail.com
+          </strong>
+
+          <button
+            class="copy-btn"
+            onclick="copyEmail()"
+          >
+            Copy Email
+          </button>
+
+        </div>
+
+
+        <div class="info-box">
+
+          <small>💻 GitHub</small>
+
+          <strong>
+            yashpandey1567-code
+          </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+          <small>🌐 Role</small>
+
+          <strong>
+            Developer & Website Owner
+          </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+          <small>🕐 Local Time</small>
+
+          <strong id="clock">
+            Loading...
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SKILLS -->
+
+    <div class="section">
+
+      <h2>🚀 Skills</h2>
+
+
+      <div class="skill">
+
+        <div class="skill-title">
+
+          <span>HTML</span>
+          <span>90%</span>
+
+        </div>
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            style="--width:90%"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill">
+
+        <div class="skill-title">
+
+          <span>CSS</span>
+          <span>85%</span>
+
+        </div>
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            style="--width:85%"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill">
+
+        <div class="skill-title">
+
+          <span>JavaScript</span>
+          <span>75%</span>
+
+        </div>
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            style="--width:75%"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill">
+
+        <div class="skill-title">
+
+          <span>Node.js</span>
+          <span>65%</span>
+
+        </div>
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            style="--width:65%"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill">
+
+        <div class="skill-title">
+
+          <span>Express.js</span>
+          <span>60%</span>
+
+        </div>
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            style="--width:60%"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill">
+
+        <div class="skill-title">
+
+          <span>SQLite</span>
+          <span>55%</span>
+
+        </div>
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            style="--width:55%"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="/"
+      class="back"
+    >
+      ← Back to Login
+    </a>
+
+  </main>
+
+
+  <!-- CHAT BUTTON -->
+
+  <button
+    class="chat-button"
+    onclick="toggleChat()"
+  >
+    🤖
+  </button>
+
+
+  <!-- CHAT BOX -->
+
+  <div
+    class="chat-box"
+    id="chatBox"
+  >
+
+    <div class="chat-header">
+
+      <strong>
+        🤖 Ask Yash Bot
+      </strong>
+
+      <button
+        class="close-chat"
+        onclick="toggleChat()"
+      >
+        ✕
+      </button>
+
+    </div>
+
+
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    >
+
+      <div class="message bot-message">
+
+        👋 Hi! I'm Ask Yash Bot.
+
+        <br><br>
+
+        Ask me about Yash,
+        his skills, learning,
+        GitHub or contact details.
+
+      </div>
+
+    </div>
+
+
+    <div class="quick-buttons">
+
+      <button
+        onclick="askBot('Who is Yash?')"
+      >
+        Who is Yash?
+      </button>
+
+      <button
+        onclick="askBot('What are Yash skills?')"
+      >
+        Skills
+      </button>
+
+      <button
+        onclick="askBot('What is Yash learning?')"
+      >
+        Learning
+      </button>
+
+      <button
+        onclick="askBot('How can I contact Yash?')"
+      >
+        Contact
+      </button>
+
+      <button
+        onclick="askBot('What is Yash GitHub?')"
+      >
+        GitHub
+      </button>
+
+    </div>
+
+
+    <div class="chat-input">
+
+      <input
+        id="userInput"
+        type="text"
+        placeholder="Ask something..."
+        onkeydown="handleEnter(event)"
+      >
+
+      <button
+        onclick="sendMessage()"
+      >
+        ➤
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- BACK TO TOP -->
+
+  <button
+    class="top-btn"
+    id="topBtn"
+    onclick="window.scrollTo(0,0)"
+  >
+    ↑
+  </button>
+
+
+  <script>
+
+    /* =========================
+       PARTICLES
+    ========================= */
+
+    const canvas =
+      document.getElementById("particles");
+
+    const ctx =
+      canvas.getContext("2d");
+
+    let particles = [];
+
+    function resizeCanvas() {
+
+      canvas.width =
+        window.innerWidth;
+
+      canvas.height =
+        window.innerHeight;
+
+    }
+
+    resizeCanvas();
+
+    window.addEventListener(
+      "resize",
+      resizeCanvas
+    );
+
+
+    for (
+      let i = 0;
+      i < 80;
+      i++
+    ) {
+
+      particles.push({
+
+        x:
+          Math.random() *
+          canvas.width,
+
+        y:
+          Math.random() *
+          canvas.height,
+
+        size:
+          Math.random() * 2 + 1,
+
+        speedX:
+          (Math.random() - 0.5) * 0.5,
+
+        speedY:
+          (Math.random() - 0.5) * 0.5
+
+      });
+
+    }
+
+
+    function drawParticles() {
+
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      particles.forEach(
+        function(p) {
+
+          p.x += p.speedX;
+          p.y += p.speedY;
+
+
+          if (
+            p.x < 0 ||
+            p.x > canvas.width
+          ) {
+
+            p.speedX *= -1;
+
+          }
+
+
+          if (
+            p.y < 0 ||
+            p.y > canvas.height
+          ) {
+
+            p.speedY *= -1;
+
+          }
+
+
+          ctx.beginPath();
+
+          ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+          );
+
+          ctx.fillStyle =
+            "rgba(56,189,248,0.65)";
+
+          ctx.fill();
+
+        }
+      );
+
+
+      requestAnimationFrame(
+        drawParticles
+      );
+
+    }
+
+    drawParticles();
+
+
+    /* =========================
+       THEME
+    ========================= */
+
+    function toggleTheme() {
+
+      document.body.classList.toggle(
+        "light"
+      );
+
+
+      const button =
+        document.querySelector(
+          ".theme-btn"
+        );
+
+
+      if (
+        document.body.classList.contains(
+          "light"
+        )
+      ) {
+
+        button.textContent = "☀️";
+
+      } else {
+
+        button.textContent = "🌙";
+
+      }
+
+    }
+
+
+    /* =========================
+       TYPING EFFECT
+    ========================= */
+
+    const texts = [
+
+      "Learning Full-Stack Development 🚀",
+
+      "Building My Own Projects 💻",
+
+      "Exploring JavaScript ⚡",
+
+      "Future Full-Stack Developer 🔥"
+
+    ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+
+
+    function typeText() {
+
+      const element =
+        document.getElementById(
+          "typing"
+        );
+
+
+      if (
+        charIndex <
+        texts[textIndex].length
+      ) {
+
+        element.textContent +=
+          texts[textIndex].charAt(
+            charIndex
+          );
+
+        charIndex++;
+
+        setTimeout(
+          typeText,
+          70
+        );
+
+      } else {
+
+        setTimeout(
+          eraseText,
+          1500
+        );
+
+      }
+
+    }
+
+
+    function eraseText() {
+
+      const element =
+        document.getElementById(
+          "typing"
+        );
+
+
+      if (charIndex > 0) {
+
+        element.textContent =
+          texts[textIndex].substring(
+            0,
+            charIndex - 1
+          );
+
+        charIndex--;
+
+        setTimeout(
+          eraseText,
+          40
+        );
+
+      } else {
+
+        textIndex =
+          (textIndex + 1)
+          % texts.length;
+
+        setTimeout(
+          typeText,
+          300
+        );
+
+      }
+
+    }
+
+    typeText();
+
+
+    /* =========================
+       CLOCK
+    ========================= */
+
+    function updateClock() {
+
+      const now =
+        new Date();
+
+
+      document.getElementById(
+        "clock"
+      ).textContent =
+        now.toLocaleString();
+
+    }
+
+    updateClock();
+
+    setInterval(
+      updateClock,
+      1000
+    );
+
+
+    /* =========================
+       COPY EMAIL
+    ========================= */
+
+    function copyEmail() {
+
+      const email =
+        "yashpandeymaihar@gmail.com";
+
+
+      navigator.clipboard
+        .writeText(email)
+        .then(
+          function() {
+
+            alert(
+              "📋 Email copied!"
+            );
+
+          }
+        );
+
+    }
+
+
+    /* =========================
+       CHAT
+    ========================= */
+
+    function toggleChat() {
+
+      const chat =
+        document.getElementById(
+          "chatBox"
+        );
+
+      chat.classList.toggle(
+        "open"
+      );
+
+    }
+
+
+    function addMessage(
+      text,
+      type
+    ) {
+
+      const messages =
+        document.getElementById(
+          "chatMessages"
+        );
+
+
+      const message =
+        document.createElement(
+          "div"
+        );
+
+
+      message.className =
+        "message " + type;
+
+
+      message.innerHTML =
+        text;
+
+
+      messages.appendChild(
+        message
+      );
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+    }
+
+
+    function askBot(question) {
+
+      addMessage(
+        question,
+        "user-message"
+      );
+
+
+      setTimeout(
+        function() {
+
+          const answer =
+            getBotAnswer(
+              question
+            );
+
+
+          addMessage(
+            answer,
+            "bot-message"
+          );
+
+        },
+        350
+      );
+
+    }
+
+
+    function getBotAnswer(
+      question
+    ) {
+
+      const q =
+        question
+          .toLowerCase()
+          .trim();
+
+
+      /* WHO */
+
+      if (
+        q.includes("who is yash") ||
+        q.includes("who's yash") ||
+        q.includes("about yash") ||
+        q === "yash"
+      ) {
+
+        return `
+          👨‍💻 <b>Yash Pandey</b> is a
+          beginner web developer who enjoys
+          creating websites and learning
+          new technologies.
+        `;
+
+      }
+
+
+      /* SKILLS */
+
+      if (
+        q.includes("skill") ||
+        q.includes("skills") ||
+        q.includes("tech stack") ||
+        q.includes("technology")
+      ) {
+
+        return `
+          🛠️ Yash's current skills are:
+          <br><br>
+          HTML • CSS • JavaScript
+          <br>
+          Node.js • Express.js • SQLite
+        `;
+
+      }
+
+
+      /* LEARNING */
+
+      if (
+        q.includes("learn") ||
+        q.includes("learning") ||
+        q.includes("studying")
+      ) {
+
+        return `
+          📚 Yash is currently exploring
+          <b>full-stack web development</b>
+          and building his own projects.
+        `;
+
+      }
+
+
+      /* CONTACT */
+
+      if (
+        q.includes("contact") ||
+        q.includes("email") ||
+        q.includes("mail")
+      ) {
+
+        return `
+          📧 You can contact Yash at:
+          <br><br>
+          <b>yashpandeymaihar@gmail.com</b>
+        `;
+
+      }
+
+
+      /* GITHUB */
+
+      if (
+        q.includes("github") ||
+        q.includes("git hub")
+      ) {
+
+        return `
+          💻 Yash's GitHub username is:
+          <br><br>
+          <b>yashpandey1567-code</b>
+        `;
+
+      }
+
+
+      /* INSTAGRAM */
+
+      if (
+        q.includes("instagram") ||
+        q.includes("insta")
+      ) {
+
+        return `
+          📸 Yash's Instagram is:
+          <br><br>
+          <b>@yashh74_</b>
+        `;
+
+      }
+
+
+      /* DEVELOPER */
+
+      if (
+        q.includes("developer") ||
+        q.includes("work") ||
+        q.includes("job")
+      ) {
+
+        return `
+          💻 Yash is a web developer
+          and website owner who is
+          exploring full-stack development.
+        `;
+
+      }
+
+
+      /* GREETING */
+
+      if (
+        q === "hi" ||
+        q === "hello" ||
+        q === "hey" ||
+        q.includes("good morning") ||
+        q.includes("good evening")
+      ) {
+
+        return `
+          👋 Hey!
+          <br><br>
+          I'm <b>Ask Yash Bot</b>.
+          Ask me about Yash's skills,
+          learning, GitHub or contact.
+        `;
+
+      }
+
+
+      /* THANKS */
+
+      if (
+        q.includes("thank") ||
+        q.includes("thanks")
+      ) {
+
+        return `
+          😄 You're welcome!
+          <br><br>
+          Feel free to ask me anything
+          about Yash.
+        `;
+
+      }
+
+
+      /* UNKNOWN */
+
+      return `
+        🤔 Sorry, mujhe ye question
+        samajh nahi aaya.
+        <br><br>
+
+        Try asking:
+        <br>
+        • Who is Yash?
+        <br>
+        • What are Yash's skills?
+        <br>
+        • What is Yash learning?
+        <br>
+        • How can I contact Yash?
+        <br>
+        • What is Yash's GitHub?
+        <br>
+        • What is Yash's Instagram?
+      `;
+
+    }
+
+
+    function sendMessage() {
+
+      const input =
+        document.getElementById(
+          "userInput"
+        );
+
+
+      const text =
+        input.value.trim();
+
+
+      if (
+        text === ""
+      ) {
+
+        return;
+
+      }
+
+
+      input.value = "";
+
+      askBot(text);
+
+    }
+
+
+    function handleEnter(
+      event
+    ) {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        sendMessage();
+
+      }
+
+    }
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    window.addEventListener(
+      "scroll",
+      function() {
+
+        const button =
+          document.getElementById(
+            "topBtn"
+          );
+
+
+        if (
+          window.scrollY > 300
+        ) {
+
+          button.style.display =
+            "block";
+
+        } else {
+
+          button.style.display =
+            "none";
+
+        }
+
+      }
+    );
+
+  </script>
+<!-- 🎵 YASH MUSIC PLAYER -->
+<style>
+#yashMusicPlayer {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 310px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(20, 20, 30, 0.95);
+  color: white;
+  z-index: 9999;
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+  backdrop-filter: blur(12px);
+  font-family: Arial, sans-serif;
+}
+
+#yashMusicPlayer h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+#songName {
+  font-size: 14px;
+  opacity: .85;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.musicControls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.musicControls button,
+#musicToggle {
+  border: none;
+  border-radius: 12px;
+  padding: 9px 13px;
+  cursor: pointer;
+  background: #ffffff18;
+  color: white;
+  font-size: 16px;
+}
+
+.musicControls button:hover,
+#musicToggle:hover {
+  background: #ffffff30;
+}
+
+#musicProgress {
+  width: 100%;
+  cursor: pointer;
+}
+
+#musicVolume {
+  width: 100%;
+  cursor: pointer;
+}
+
+.musicBottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: .75;
+}
+
+@media (max-width: 600px) {
+  #yashMusicPlayer {
+    width: calc(100% - 40px);
+    right: 20px;
+    bottom: 15px;
+  }
+}
+</style>
+
+<div id="yashMusicPlayer">
+
+  <h3>🎵 Yash Music</h3>
+
+  <div id="songName">Ready to play 🎧</div>
+
+  <audio id="yashAudio"></audio>
+
+  <input
+    type="range"
+    id="musicProgress"
+    value="0"
+    min="0"
+    max="100"
+  >
+
+  <div class="musicControls">
+    <button onclick="previousSong()">⏮️</button>
+    <button onclick="toggleMusic()" id="musicToggle">▶️</button>
+    <button onclick="nextSong()">⏭️</button>
+    <button onclick="randomSong()">🔀</button>
+  </div>
+
+  <input
+    type="range"
+    id="musicVolume"
+    min="0"
+    max="1"
+    step="0.01"
+    value="0.7"
+  >
+
+  <div class="musicBottom">
+    <span id="songCounter">1 / 9</span>
+    <span>🔊 Volume</span>
+  </div>
+
+</div>
+
+<script>
+const playlist = [
+  "chachaa.mp3",
+  "south-indian-meme.mp3",
+  "jagdish-bhagat-bolta-hai.mp3",
+  "ye-tumhara-parchar.mp3",
+  "tere-naino-mein-by-vj.mp3",
+  "neta-neta-har-koi-kheta.mp3",
+  "thoda-thoda-pyar-1-by-vj.mp3",
+  "chalti-firti-cocaine.mp3",
+  "ddlg-1-by-vj.mp3"
+];
+
+let currentSong = 0;
+
+const audio = document.getElementById("yashAudio");
+const songName = document.getElementById("songName");
+const musicToggle = document.getElementById("musicToggle");
+const progress = document.getElementById("musicProgress");
+const volume = document.getElementById("musicVolume");
+const songCounter = document.getElementById("songCounter");
+
+function loadSong(index) {
+  currentSong = index;
+
+  audio.src = "/music/" + playlist[currentSong];
+
+  songName.textContent = playlist[currentSong]
+    .replace(".mp3", "")
+    .replaceAll("-", " ");
+
+  songCounter.textContent =
+    (currentSong + 1) + " / " + playlist.length;
+
+  progress.value = 0;
+}
+
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+    musicToggle.textContent = "⏸️";
+  } else {
+    audio.pause();
+    musicToggle.textContent = "▶️";
+  }
+}
+
+function nextSong() {
+  currentSong++;
+
+  if (currentSong >= playlist.length) {
+    currentSong = 0;
+  }
+
+  loadSong(currentSong);
+  audio.play();
+  musicToggle.textContent = "⏸️";
+}
+
+function previousSong() {
+  currentSong--;
+
+  if (currentSong < 0) {
+    currentSong = playlist.length - 1;
+  }
+
+  loadSong(currentSong);
+  audio.play();
+  musicToggle.textContent = "⏸️";
+}
+
+function randomSong() {
+  let randomIndex;
+
+  do {
+    randomIndex = Math.floor(Math.random() * playlist.length);
+  } while (randomIndex === currentSong && playlist.length > 1);
+
+  loadSong(randomIndex);
+  audio.play();
+  musicToggle.textContent = "⏸️";
+}
+
+audio.addEventListener("timeupdate", () => {
+  if (audio.duration) {
+    progress.value =
+      (audio.currentTime / audio.duration) * 100;
+  }
+});
+
+progress.addEventListener("input", () => {
+  if (audio.duration) {
+    audio.currentTime =
+      (progress.value / 100) * audio.duration;
+  }
+});
+
+volume.addEventListener("input", () => {
+  audio.volume = volume.value;
+});
+
+audio.addEventListener("ended", () => {
+  nextSong();
+});
+
+audio.addEventListener("play", () => {
+  musicToggle.textContent = "⏸️";
+});
+
+audio.addEventListener("pause", () => {
+  musicToggle.textContent = "▶️";
+});
+
+loadSong(0);
+audio.volume = 0.7;
+</script>
+</body>
+</html>
